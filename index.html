@@ -58,39 +58,40 @@
     </div>
     <script>
       let countMembers = 1;
-      let arrayOfMembers = document.getElementsByClassName("member-listed");
-      let arrayOfTeams = document.getElementsByClassName("team");
 
       let assignMemberToTeam = function () {
+        //     let arrayOfMembers = document.getElementsByClassName("member-listed");
+        let arrayOfTeams = document.getElementsByClassName("team");
         let ul = document.getElementById("ul-display");
-        let divNumberOfTeams = document.getElementById("number-of-teams");
-        let numbersOfTeams = parseInt(divNumberOfTeams.innerText);
 
-        // if (ul.children.length > numbersOfTeams && numbersOfTeams >= 2) {
-        if (ul.children.length > 0) {
-          //   Randomizing Member here
-          let randomNumber =
-            Math.floor(Math.random() * arrayOfMembers.length) + 1;
+        //     // if (ul.children.length > numbersOfTeams && numbersOfTeams >= 2) {
+        if (ul.children.length > 0 && arrayOfTeams.length > 0) {
+          //     //   Randomizing Member here
+          //     let randomNumber =
+          //       Math.floor(Math.random() * arrayOfMembers.length) + 1;
           // Randomizing Team here
           let randomTeam = Math.floor(Math.random() * arrayOfTeams.length) + 1;
 
-          let countDisplayedMembers = [];
+          //     let countDisplayedMembers = [];
 
-          for (let i = 0; i < arrayOfMembers.length; i++) {
-            countDisplayedMembers.push("member" + [i + 1]);
-            console.log(countDisplayedMembers);
-          }
+          //     for (let i = 0; i < arrayOfMembers.length; i++) {
+          //       countDisplayedMembers.push("member" + [i + 1]);
+          //     }
 
-          let chosenMember = document.getElementById("member" + randomNumber);
-          chosenMember.classList.remove("member-listed");
+          //     let chosenMember = document.getElementById("member" + randomNumber);
+          //     chosenMember.classList.remove("member-listed");
           let chosenTeam = document.getElementById("team" + randomTeam + "Ul");
-          chosenTeam.append(chosenMember);
-          countDisplayedMembers.splice(randomNumber - 1, 1);
-        } else {
+
+          chosenTeam.append(ul.firstElementChild);
+        }
+        //     countDisplayedMembers.splice(randomNumber - 1, 1);
+        //   };
+        // }
+        else {
           alert("Not enough Members or Teams listed");
         }
+        //   };
       };
-
       let addMemberToList = function () {
         let inputField = document.getElementById("member-input");
 
