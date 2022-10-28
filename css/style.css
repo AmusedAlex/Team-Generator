@@ -1,11 +1,11 @@
 * {
   /* border: 1px solid black; */
-  border-radius: 2px;
   box-sizing: border-box;
 }
 body {
   margin: 0;
   background-color: rgb(245, 246, 253);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 header {
@@ -14,7 +14,19 @@ header {
 }
 
 h1 {
-  font-weight: 300;
+  font-weight: 100;
+}
+
+div.decription {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.6vh;
+  font-weight: bolder;
+  margin-bottom: 1%;
+}
+
+.teams-title {
+  margin-right: 9vw;
 }
 
 .container {
@@ -49,7 +61,26 @@ h1 {
 #member-input {
   width: 90%;
   flex-shrink: 2;
+  height: 3.5vh;
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  font-size: 1.5vh;
+  padding-left: 0.5vw;
 }
+
+#add-button {
+  background-color: rgb(139, 139, 255);
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  color: white;
+  height: 3.5vh;
+  font-size: 1.5vh;
+}
+
+#add-button:hover {
+  box-shadow: 0px 0px 1px 1px rgb(139, 139, 255);
+}
+
 .add-team {
   display: flex;
   width: 30%;
@@ -57,19 +88,58 @@ h1 {
   align-items: center;
 }
 
+#minus {
+  background-color: rgb(139, 139, 255);
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  color: white;
+  height: 3.5vh;
+  aspect-ratio: 1/1;
+  font-size: 8pt;
+}
+
+#minus:hover {
+  box-shadow: 0px 0px 1px 1px rgb(139, 139, 255);
+}
+
+#number-of-teams {
+  font-size: 1.5vh;
+}
+
+#plus {
+  background-color: rgb(139, 139, 255);
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  color: white;
+  height: 3.5vh;
+  aspect-ratio: 1/1;
+  font-size: 8pt;
+}
+
+#plus:hover {
+  box-shadow: 0px 0px 1px 1px rgb(139, 139, 255);
+}
+
 ul.display-members {
-  min-height: 20vh;
+  min-height: 30vh;
   padding-left: 1%;
   padding-right: 1%;
   background-color: white;
-  border: 1px solid lightgrey;
+  border: 0.5px solid lightgrey;
+  border-radius: 2px;
   box-shadow: inset 0px 0px 2px 2px lightgrey;
+  font-size: 1.5vh;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
-li {
+ul.display-members li {
   list-style-type: none;
   border-bottom: 1px solid lightgrey;
-  padding: 2% 2%;
+  padding: 3% 3%;
+  font-size: 1.5vh;
+  font-weight: 700;
+  color: rgb(116, 116, 116);
 }
 
 .assign-reset {
@@ -79,14 +149,39 @@ li {
 }
 
 #assign {
-  width: 80%;
+  background-color: rgb(139, 139, 255);
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  color: white;
+  height: 3.5vh;
+  width: 84%;
+  font-size: 1.5vh;
+}
+
+#assign:hover {
+  box-shadow: 0px 0px 1px 1px rgb(139, 139, 255);
+}
+
+#reset {
+  background-color: rgb(176, 86, 86);
+  border: 1px solid lightgrey;
+  border-radius: 2px;
+  color: white;
+  height: 3.5vh;
+  width: 15%;
+  font-size: 1.5vh;
+}
+
+#reset:hover {
+  box-shadow: 0px 0px 1px 1px rgb(176, 86, 86);
 }
 
 .right-side {
   width: 49%;
   height: fit-content;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 3%;
   flex-wrap: wrap;
 }
 
@@ -95,23 +190,28 @@ li {
   flex-direction: column;
   width: 30%;
   min-height: fit-content;
-  margin-bottom: 5%;
 }
 
 h3 {
   line-height: 1.15;
   margin: 0;
+  font-size: 2.5vh;
 }
 
 ul.displaying-teams {
   border: 1px solid lightgrey;
+  border-radius: 2px;
   box-shadow: 0px 0px 1px 1px lightgrey;
   background-color: white;
-  min-height: 20vh;
-  padding-left: 0;
+  min-height: 30vh;
+  padding-left: 2%;
+  padding-right: 2%;
 }
 
 .displaying-teams li {
   border-bottom: 1px solid lightgrey;
-  padding: 5% 15%;
+  font-size: 1.5vh;
+  font-weight: 700;
+  padding: 10% 10%;
+  color: rgb(116, 116, 116);
 }

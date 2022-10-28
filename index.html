@@ -12,6 +12,10 @@
     <header><h1>TEAM GENERATOR</h1></header>
     <div class="container">
       <div class="left-side">
+        <div class="decription">
+          <div>Add Member</div>
+          <div class="teams-title">Teams</div>
+        </div>
         <div class="add-member-team">
           <div class="add-member">
             <input
@@ -53,22 +57,35 @@
       </div>
     </div>
     <script>
+      let countMembers = 1;
+      let arrayOfMembers = document.getElementsByClassName("member-listed");
+      let arrayOfTeams = document.getElementsByClassName("team");
+
       let assignMemberToTeam = function () {
         let ul = document.getElementById("ul-display");
         let divNumberOfTeams = document.getElementById("number-of-teams");
         let numbersOfTeams = parseInt(divNumberOfTeams.innerText);
 
-        console.log(numbersOfTeams);
-        console.log(ul.children.length);
+        // if (ul.children.length > numbersOfTeams && numbersOfTeams >= 2) {
+        if (ul.children.length > 0) {
+          //   Randomizing Member here
+          let randomNumber =
+            Math.floor(Math.random() * arrayOfMembers.length) + 1;
+          // Randomizing Team here
+          let randomTeam = Math.floor(Math.random() * arrayOfTeams.length) + 1;
 
-        if (ul.children.length >= numbersOfTeams && numbersOfTeams >= 2) {
-          let arrayOfMembers = document.getElementsByClassName("member-listed");
-          let arrayOfTeams = document.getElementsByClassName("team");
-          console.log(arrayOfMembers);
-          console.log(arrayOfTeams);
+          let countDisplayedMembers = [];
 
-          console.log("Has at least 2 childs");
-          //   Remomize Team here
+          for (let i = 0; i < arrayOfMembers.length; i++) {
+            countDisplayedMembers.push("member" + [i + 1]);
+            console.log(countDisplayedMembers);
+          }
+
+          let chosenMember = document.getElementById("member" + randomNumber);
+          chosenMember.classList.remove("member-listed");
+          let chosenTeam = document.getElementById("team" + randomTeam + "Ul");
+          chosenTeam.append(chosenMember);
+          countDisplayedMembers.splice(randomNumber - 1, 1);
         } else {
           alert("Not enough Members or Teams listed");
         }
@@ -76,11 +93,14 @@
 
       let addMemberToList = function () {
         let inputField = document.getElementById("member-input");
-        let ul = document.getElementById("ul-display");
-        let li = document.createElement("li");
-        li.classList.add("member-listed");
 
         if (inputField.value !== "") {
+          let ul = document.getElementById("ul-display");
+          let li = document.createElement("li");
+          li.classList.add("member-listed");
+          li.setAttribute("id", "member" + countMembers);
+
+          countMembers += 1;
           li.innerText = inputField.value;
           ul.appendChild(li);
           inputField.value = "";
@@ -114,11 +134,12 @@
         for (let i = numbersOfTeams - 1; i < numbersOfTeams; i++) {
           newDiv = document.createElement("div");
           newDiv.classList.add("team");
-          newDiv.classList.add("team-" + [i + 1]);
+          newDiv.setAttribute("id", "team" + [i + 1]);
           newH3 = document.createElement("h3");
           newH3.innerText = "Team " + [i + 1];
           newUl = document.createElement("ul");
           newUl.classList.add("displaying-teams");
+          newUl.setAttribute("id", "team" + [i + 1] + "Ul");
 
           newDiv.appendChild(newH3);
           newDiv.appendChild(newUl);
@@ -143,6 +164,8 @@
 
         let container = document.querySelector(".right-side");
         container.innerHTML = "";
+
+        countMembers = 1;
       };
     </script>
   </body>
