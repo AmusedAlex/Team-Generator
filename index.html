@@ -55,12 +55,22 @@
     <script>
       let assignMemberToTeam = function () {
         let ul = document.getElementById("ul-display");
+        let divNumberOfTeams = document.getElementById("number-of-teams");
+        let numbersOfTeams = parseInt(divNumberOfTeams.innerText);
+
+        console.log(numbersOfTeams);
         console.log(ul.children.length);
-        if (ul.children.length >= 2) {
+
+        if (ul.children.length >= numbersOfTeams && numbersOfTeams >= 2) {
+          let arrayOfMembers = document.getElementsByClassName("member-listed");
+          let arrayOfTeams = document.getElementsByClassName("team");
+          console.log(arrayOfMembers);
+          console.log(arrayOfTeams);
+
           console.log("Has at least 2 childs");
           //   Remomize Team here
         } else {
-          alert("Not enough Members listed");
+          alert("Not enough Members or Teams listed");
         }
       };
 
@@ -68,6 +78,7 @@
         let inputField = document.getElementById("member-input");
         let ul = document.getElementById("ul-display");
         let li = document.createElement("li");
+        li.classList.add("member-listed");
 
         if (inputField.value !== "") {
           li.innerText = inputField.value;
