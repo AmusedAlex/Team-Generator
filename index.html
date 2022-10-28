@@ -21,38 +21,118 @@
               placeholder="Name"
               value=""
             />
-            <button>Add</button>
+            <button id="add-button" onclick="addMemberToList()">Add</button>
           </div>
           <div class="add-team">
             <button id="minus" onclick="decreaseTeam()">-</button>
-            <div id="number-of-teams" value="0">0</div>
+            <div id="number-of-teams" value="1">0</div>
             <button id="plus" onclick="increaseTeam()">+</button>
           </div>
         </div>
-        <ul class="display-members">
+        <ul class="display-members" id="ul-display">
           <!-- <li>Test-Player</li> -->
         </ul>
         <div class="assign-reset">
-          <button class="assign">Assign Member</button>
-          <button class="reset">Reset</button>
+          <button id="assign" onclick="assignMemberToTeam()">
+            Assign Member
+          </button>
+          <button id="reset" onclick="resetGenerator()">Reset</button>
         </div>
       </div>
       <div class="right-side">
-        <div class="team">
+        <!-- <div class="team">
           <h3>Team 1</h3>
           <ul class="displaying-teams">
-            <!-- <li>Alex</li>
+           <li>Alex</li>
             <li>Max</li>
             <li>Max</li>
             <li>Max</li>
-            <li>Max</li> -->
-          </ul>
-        </div>
+            <li>Max</li> 
+          </ul> 
+        </div>-->
       </div>
     </div>
     <script>
-      let decreaseTeam = function () {};
-      let numberOfTeams = document.getElementById("number-of-teams");
+      let assignMemberToTeam = function () {
+        let ul = document.getElementById("ul-display");
+        console.log(ul.children.length);
+        if (ul.children.length >= 2) {
+          console.log("Has at least 2 childs");
+          //   Remomize Team here
+        } else {
+          alert("Not enough Members listed");
+        }
+      };
+
+      let addMemberToList = function () {
+        let inputField = document.getElementById("member-input");
+        let ul = document.getElementById("ul-display");
+        let li = document.createElement("li");
+
+        if (inputField.value !== "") {
+          li.innerText = inputField.value;
+          ul.appendChild(li);
+          inputField.value = "";
+        } else {
+          alert("Please insert a name");
+        }
+      };
+
+      let removeTeam = function () {
+        let container = document.querySelector(".right-side");
+        container.removeChild(container.lastChild);
+      };
+
+      let decreaseTeam = function () {
+        let divNumberOfTeams = document.getElementById("number-of-teams");
+        let numbersOfTeams = parseInt(divNumberOfTeams.innerText);
+        if (numbersOfTeams > 0) {
+          numbersOfTeams -= 1;
+          divNumberOfTeams.innerText = numbersOfTeams;
+          removeTeam();
+        } else {
+          alert("You can't have less then 0 Teams!");
+        }
+      };
+
+      let addTeamDiv = function () {
+        let container = document.querySelector(".right-side");
+        let divNumberOfTeams = document.getElementById("number-of-teams");
+        let numbersOfTeams = parseInt(divNumberOfTeams.innerText);
+
+        for (let i = numbersOfTeams - 1; i < numbersOfTeams; i++) {
+          newDiv = document.createElement("div");
+          newDiv.classList.add("team");
+          newDiv.classList.add("team-" + [i + 1]);
+          newH3 = document.createElement("h3");
+          newH3.innerText = "Team " + [i + 1];
+          newUl = document.createElement("ul");
+          newUl.classList.add("displaying-teams");
+
+          newDiv.appendChild(newH3);
+          newDiv.appendChild(newUl);
+          container.appendChild(newDiv);
+        }
+      };
+
+      let increaseTeam = function () {
+        let divNumberOfTeams = document.getElementById("number-of-teams");
+        let numbersOfTeams = parseInt(divNumberOfTeams.innerText);
+        numbersOfTeams += 1;
+        divNumberOfTeams.innerText = numbersOfTeams;
+        addTeamDiv();
+      };
+
+      let resetGenerator = function () {
+        let divNumberOfTeams = document.getElementById("number-of-teams");
+        divNumberOfTeams.innerText = 0;
+
+        let ul = document.getElementById("ul-display");
+        ul.innerHTML = "";
+
+        let container = document.querySelector(".right-side");
+        container.innerHTML = "";
+      };
     </script>
   </body>
 </html>
