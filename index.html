@@ -19,18 +19,18 @@
               name="Add Member"
               id="member-input"
               placeholder="Name"
+              value=""
             />
             <button>Add</button>
           </div>
           <div class="add-team">
-            <button>-</button>
-            <div class="number-of teams">1</div>
-            <button>+</button>
+            <button id="minus" onclick="decreaseTeam()">-</button>
+            <div id="number-of-teams" value="0">0</div>
+            <button id="plus" onclick="increaseTeam()">+</button>
           </div>
         </div>
         <ul class="display-members">
-          <li>Test-Player</li>
-          <li></li>
+          <!-- <li>Test-Player</li> -->
         </ul>
         <div class="assign-reset">
           <button class="assign">Assign Member</button>
@@ -38,8 +38,21 @@
         </div>
       </div>
       <div class="right-side">
-        <div class="team"><h3>Team 1</h3></div>
+        <div class="team">
+          <h3>Team 1</h3>
+          <ul class="displaying-teams">
+            <!-- <li>Alex</li>
+            <li>Max</li>
+            <li>Max</li>
+            <li>Max</li>
+            <li>Max</li> -->
+          </ul>
+        </div>
       </div>
     </div>
+    <script>
+      let decreaseTeam = function () {};
+      let numberOfTeams = document.getElementById("number-of-teams");
+    </script>
   </body>
 </html>

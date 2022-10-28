@@ -1,9 +1,11 @@
 * {
-  border: 1px solid black;
+  /* border: 1px solid black; */
+  border-radius: 2px;
+  box-sizing: border-box;
 }
 body {
   margin: 0;
-  background-color: aqua;
+  background-color: rgb(245, 246, 253);
 }
 
 header {
@@ -20,11 +22,12 @@ h1 {
   height: 100%;
   margin-inline: auto;
   display: flex;
+  justify-content: space-between;
 }
 
 .left-side {
-  width: 50%;
-  height: 50vh;
+  width: 49%;
+  height: fit-content;
   display: flex;
   flex-direction: column;
 }
@@ -56,11 +59,17 @@ h1 {
 
 ul.display-members {
   min-height: 20vh;
-  padding-left: 0;
+  padding-left: 1%;
+  padding-right: 1%;
+  background-color: white;
+  border: 1px solid lightgrey;
+  box-shadow: inset 0px 0px 2px 2px lightgrey;
 }
 
 li {
   list-style-type: none;
+  border-bottom: 1px solid lightgrey;
+  padding: 2% 2%;
 }
 
 .assign-reset {
@@ -74,10 +83,35 @@ li {
 }
 
 .right-side {
-  width: 50%;
-  height: 70vh;
+  width: 49%;
+  height: fit-content;
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
+
+.team {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  min-height: fit-content;
+  margin-bottom: 5%;
+}
+
 h3 {
   line-height: 1.15;
+  margin: 0;
+}
+
+ul.displaying-teams {
+  border: 1px solid lightgrey;
+  box-shadow: 0px 0px 1px 1px lightgrey;
+  background-color: white;
+  min-height: 20vh;
+  padding-left: 0;
+}
+
+.displaying-teams li {
+  border-bottom: 1px solid lightgrey;
+  padding: 5% 15%;
 }
